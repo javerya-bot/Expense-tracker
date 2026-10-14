@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PennyTrack | Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <a class="logo" href="#">Penny<span>Track.</span></a>
+      <span class="tag">PERSONAL FINANCE</span>
+    </header>
+
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR MONEY, YOUR CONTROL</p>
+        <h1>Expense Tracker</h1>
+        <p class="subtitle">Track your spending. Build better habits.</p>
+      </div>
+      <div class="date-box">
+        <span>Today</span>
+        <strong id="today"></strong>
+      </div>
+    </section>
+
+    <section class="summary">
+      <article class="card balance-card">
+        <p>Total Balance</p>
+        <h2 id="balance">Rs 0</h2>
+        <span class="card-note">Income minus expenses</span>
+      </article>
+      <article class="card">
+        <p>Total Income</p>
+        <h2 id="income">Rs 0</h2>
+        <span class="card-note green">↗ Money received</span>
+      </article>
+      <article class="card">
+        <p>Total Expenses</p>
+        <h2 id="expense">Rs 0</h2>
+        <span class="card-note red">↘ Money spent</span>
+      </article>
+    </section>
+
+    <main class="content">
+      <section class="panel form-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">KEEP IT ORGANIZED</p>
+            <h2>Add Transaction</h2>
+          </div>
+          <span class="plus-icon">＋</span>
+        </div>
+
+        <form id="transaction-form">
+          <label for="description">Description</label>
+          <input id="description" type="text"
+            placeholder="e.g. Grocery shopping" maxlength="80" required>
+
+          <label for="amount">Amount (PKR)</label>
+          <input id="amount" type="number"
+            placeholder="Enter amount" min="1" step="0.01" required>
+
+          <label for="type">Transaction Type</label>
+          <select id="type" required>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="Food">🍔 Food & Dining</option>
+            <option value="Transport">🚗 Transport</option>
+            <option value="Shopping">🛍️ Shopping</option>
+            <option value="Bills">💡 Bills</option>
+            <option value="Education">📚 Education</option>
+            <option value="Health">💊 Health</option>
+            <option value="Salary">💼 Salary</option>
+            <option value="Freelance">💻 Freelance</option>
+            <option value="Other">✨ Other</option>
+          </select>
+
+          <label for="date">Date</label>
+          <input id="date" type="date" required>
+
+          <button class="primary-btn" type="submit">
+            + Add Transaction
+          </button>
+        </form>
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+      </section>
+
+      <section class="panel transactions-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">YOUR MONEY ACTIVITY</p>
+            <h2>Recent Transactions</h2>
+          </div>
+          <span class="count" id="count">0 items</span>
+        </div>
+
+        <div class="toolbar">
+          <input id="search" type="search"
+            placeholder="Search transactions..." aria-label="Search transactions">
+          <select id="filter" aria-label="Filter transactions">
+            <option value="all">All Types</option>
+            <option value="income">Income</option>
+            <option value="expense">Expenses</option>
+          </select>
+        </div>
+
+        <div class="transaction-list" id="transaction-list"></div>
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">✦</div>
+          <h3>No transactions yet</h3>
+          <p>Add your first transaction to see it here.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>Made with ♥ · PennyTrack Expense Tracker</footer>
+  </div>
+</body>
+</html>
